@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Ready Legal</title>
+<meta name="description" content="Ready Legal offers transparent, straightforward legal fee structures for Florida construction law, business law, and litigation matters.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --navy: #0b2a4a;
+  --navy-mid: #143a63;
+  --orange: #ff8c2a;
+  --orange-dark: #e67a1f;
+  --white: #ffffff;
+  --off-white: #f5f7fb;
+  --gray: #e4e8f0;
+  --text: #1a2332;
+  --text-light: #5a6478;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  background: var(--navy);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.logo:hover { color: var(--orange); }
+
+nav { display: flex; gap: 28px; align-items: center; }
+nav a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+nav a:hover { color: white; }
+nav a.active { color: white; }
+
+.nav-cta {
+  background: var(--orange);
+  color: white !important;
+  padding: 9px 20px;
+  border-radius: 3px;
+  font-weight: 600 !important;
+  transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--orange-dark) !important; }
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 80px 48px;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%),
+    url("https://readylegal.net/wp-content/uploads/2025/05/mick-haupt-tyn3-cljx-a-unsplash.jpg");
+  background-size: cover;
+  background-position: center right;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.1s;
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 60px);
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.25s;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  max-width: 520px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.4s;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--gray);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.trust-item span { color: var(--orange); font-size: 14px; }
+
+/* PRICING OVERVIEW */
+.pricing-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 38px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.85;
+  font-weight: 300;
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+/* PRICING CARDS */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.pricing-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--navy);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.pricing-card.visible {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.pricing-card:hover {
+  border-top-color: var(--orange);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+  transform: translateY(-3px);
+}
+
+.card-header {
+  background: var(--navy);
+  padding: 28px 32px;
+}
+
+.card-header .card-icon { font-size: 28px; margin-bottom: 12px; }
+
+.card-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.card-header p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+}
+
+.card-rate {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--gray);
+  background: white;
+}
+
+.rate-amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.rate-amount .rate-unit {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.rate-note {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+
+.card-body {
+  padding: 24px 32px;
+  background: white;
+}
+
+.card-body ul { list-style: none; }
+
+.card-body li {
+  font-size: 13px;
+  color: var(--text-light);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--off-white);
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.card-body li::before {
+  content: '—';
+  color: var(--orange);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.card-body li:last-child { border-bottom: none; }
+
+/* FLAT FEE CALLOUT */
+.flat-fee-section {
+  background: var(--navy);
+  padding: 80px 48px;
+}
+
+.flat-fee-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flat-fee-inner .section-label { color: var(--orange); }
+.flat-fee-inner .section-title { color: white; margin-bottom: 12px; }
+.flat-fee-intro {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  line-height: 1.85;
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+
+.flat-fee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.flat-fee-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 2px solid var(--orange);
+  padding: 32px 28px;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.flat-fee-card.visible {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.flat-fee-icon { font-size: 28px; margin-bottom: 16px; }
+
+.flat-fee-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.flat-fee-card p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* POLICIES SECTION */
+.policies-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.policies-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.policy-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-left: 3px solid var(--orange);
+  padding: 32px 28px;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.policy-card.visible {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.policy-icon { font-size: 24px; margin-bottom: 14px; }
+
+.policy-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.policy-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.policy-card strong { color: var(--text); font-weight: 600; }
+
+/* CTA / CONTACT */
+.cta-section {
+  background: var(--off-white);
+  border-top: 1px solid var(--gray);
+  padding: 80px 48px;
+}
+
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cta-left p {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.cta-phone {
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--navy);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+.cta-phone:hover { color: var(--orange); }
+.cta-hours { font-size: 13px; color: var(--text-light); font-weight: 500; }
+
+.form-box {
+  background: white;
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--orange);
+  padding: 40px 36px;
+  border-radius: 3px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+.form-box h3 {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--off-white);
+  margin-bottom: 18px;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: white;
+}
+
+form textarea { resize: vertical; }
+
+form button {
+  background: var(--orange);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+}
+form button:hover { background: var(--orange-dark); }
+
+/* FOOTER */
+footer { background: #07192c; padding: 56px 48px 28px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 28px;
+}
+
+.footer-brand .logo { display: block; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 18px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--orange); }
+
+.footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+.footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+.footer-contact a:hover { color: var(--orange); }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { display: none; }
+  header { padding: 0 24px; }
+  .hero { padding: 60px 24px; }
+  .trust-bar { padding: 14px 24px; gap: 20px; }
+  .pricing-section, .policies-section { padding: 56px 24px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .flat-fee-section { padding: 56px 24px; }
+  .flat-fee-grid { grid-template-columns: 1fr; }
+  .policies-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 56px 24px; }
+  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  footer { padding: 48px 24px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+  <nav>
+    <a href="https://counsel.readylegal.net">Counsel</a>
+    <a href="https://practices.readylegal.net">Practice Areas</a>
+    <a href="#" style="color:white;">Pricing</a>
+    <a href="https://readylegal.net/about/">About</a>
+    <a href="https://readylegal.net/articles/">Blog</a>
+    <a href="#contact" class="nav-cta">Get Help</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Ready Legal &mdash; Orlando, Florida</p>
+    <h1>Pricing</h1>
+    <p class="hero-sub">Transparent and straightforward legal fees. No surprises &mdash; just clear pricing tailored to your matter.</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span class="trust-item"><span>★</span> Best Lawyers® Recognized</span>
+  <span class="trust-item"><span>★</span> Super Lawyers® Recognized</span>
+  <span class="trust-item"><span>★</span> Veteran Owned</span>
+  <span class="trust-item"><span>★</span> Florida Statewide</span>
+</div>
+
+<!-- PRICING CARDS -->
+<section class="pricing-section">
+  <p class="section-label">Fee Structure</p>
+  <h2 class="section-title">How We Bill</h2>
+  <p class="section-sub">Ready Legal believes in transparency and clarity when it comes to legal fees. Most services are billed hourly, with flat-fee options available for select matters agreed upon in advance.</p>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <div class="card-header">
+        <div class="card-icon">⚖️</div>
+        <h3>Attorney Legal Services</h3>
+        <p>Work performed directly by the attorney</p>
+      </div>
+      <div class="card-rate">
+        <div class="rate-amount">$330 <span class="rate-unit">/ hour</span></div>
+        <p class="rate-note">Standard hourly rate for all attorney services</p>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Contract review and drafting</li>
+          <li>Litigation and court appearances</li>
+          <li>Legal research and analysis</li>
+          <li>Client consultations</li>
+          <li>Negotiations and correspondence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <div class="card-header">
+        <div class="card-icon">📋</div>
+        <h3>Administrative Services</h3>
+        <p>Work performed by legal assistants and support staff</p>
+      </div>
+      <div class="card-rate">
+        <div class="rate-amount">$75–$150 <span class="rate-unit">/ hour</span></div>
+        <p class="rate-note">Rate varies by task and staff member</p>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Document preparation and filing</li>
+          <li>Court filings and service of process</li>
+          <li>Client communication support</li>
+          <li>Record retrieval and organization</li>
+          <li>Scheduling and coordination</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <div class="card-header">
+        <div class="card-icon">💲</div>
+        <h3>Flat Fee Services</h3>
+        <p>Fixed pricing for select matters agreed upon in advance</p>
+      </div>
+      <div class="card-rate">
+        <div class="rate-amount" style="font-size:24px; padding-top:6px;">Fixed Price</div>
+        <p class="rate-note">Full fee paid in advance before work begins</p>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Uncontested evictions (possession only)</li>
+          <li>Contract preparation</li>
+          <li>Construction lien preparation</li>
+          <li>Other projects agreed upon in writing</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FLAT FEE SECTION -->
+<section class="flat-fee-section">
+  <div class="flat-fee-inner">
+    <p class="section-label">Flat Fee Services</p>
+    <h2 class="section-title">Predictable Pricing for Common Matters</h2>
+    <p class="flat-fee-intro">For certain projects, Ready Legal offers legal services on a flat-fee basis if agreed upon in advance. These services are priced transparently so you know the cost before work begins.</p>
+    <div class="flat-fee-grid">
+      <div class="flat-fee-card">
+        <div class="flat-fee-icon">🏠</div>
+        <h3>Uncontested Evictions</h3>
+        <p>Flat fee available for uncontested evictions seeking possession only. Does not include money damages or contested proceedings.</p>
+      </div>
+      <div class="flat-fee-card">
+        <div class="flat-fee-icon">📝</div>
+        <h3>Contract Preparation</h3>
+        <p>Standard business and construction contracts drafted to your specifications for a fixed, agreed-upon price.</p>
+      </div>
+      <div class="flat-fee-card">
+        <div class="flat-fee-icon">🔨</div>
+        <h3>Construction Lien Preparation</h3>
+        <p>Florida construction liens prepared by a licensed attorney for a flat fee. Lien must be recorded and served by the client.</p>
+        <a href="https://lien.readylegal.net" style="display:inline-block; margin-top:20px; background:var(--orange); color:white; padding:10px 20px; border-radius:3px; font-size:13px; font-weight:700; text-decoration:none; letter-spacing:0.3px; transition:background 0.3s;" onmouseover="this.style.background='#e67a1f'" onmouseout="this.style.background='#ff8c2a'">Start My Lien &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLICIES -->
+<section class="policies-section">
+  <p class="section-label">Fee Policies</p>
+  <h2 class="section-title">What You Should Know</h2>
+  <div class="policies-grid">
+
+    <div class="policy-card">
+      <div class="policy-icon">💳</div>
+      <h3>Payment in Advance</h3>
+      <p>Ready Legal collects fees in advance to ensure seamless legal service. For hourly work, we require an <strong>advance fee deposit</strong> (often incorrectly referred to as a "retainer"). The amount typically correlates with the scope of the project or, for longer matters such as litigation, an estimate covering an interim billing period. For flat-fee services, the full fee must be paid before work begins.</p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">🚫</div>
+      <h3>No Contingency Fees</h3>
+      <p>Ready Legal does <strong>not</strong> operate on a contingency fee model. All legal services are billed according to the hourly rates or agreed-upon flat fees described above. If you need a personal injury attorney who operates on contingency, we would be happy to offer a referral.</p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">🤝</div>
+      <h3>Engagement Agreement Required</h3>
+      <p>No legal services are performed until a written engagement agreement has been signed by both parties. Submitting a form or contacting the firm does not create an attorney-client relationship or obligate the firm to perform any services.</p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">💬</div>
+      <h3>Questions About Fees?</h3>
+      <p>If you have any questions about our pricing or would like an estimate for your specific matter, contact Ready Legal. We are happy to discuss your case and provide <strong>clarity on potential costs</strong> before you commit to anything.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT / INTAKE -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <p class="section-label">Get Help</p>
+      <h2 class="section-title">Ready to speak with an attorney?</h2>
+      <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone to discuss your matter and get a fee estimate.</p>
+      <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
+      <p class="cta-hours">Monday &ndash; Friday &nbsp;|&nbsp; 9:00 AM &ndash; 5:00 PM</p>
+    </div>
+    <div class="form-box">
+      <h3>Request a Consultation</h3>
+      <form action="https://formspree.io/f/xgonadnj" method="POST">
+        <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Jane Smith" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="jane@example.com" required>
+
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="(407) 555-0000">
+
+        <label>Briefly Describe Your Legal Matter</label>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+
+        <button type="submit">Get Help &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <br>
+        <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="https://counsel.readylegal.net">Counsel</a></li>
+          <li><a href="https://practices.readylegal.net">Practice Areas</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="https://readylegal.net/about/">About</a></li>
+          <li><a href="https://readylegal.net/articles/">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          924 N. Magnolia Avenue<br>
+          Suite 202, #1178<br>
+          Orlando, FL 32803<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox &mdash; mailing only</span>
+          <br><br>
+          <a href="tel:4072582002">(407) 258-2002</a><br>
+          <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
+          <a href="https://home.readylegal.net">www.readylegal.net</a>
+          <br><br>
+          Veteran Owned &#127482;&#127480;
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.</p>
+      <p class="footer-copy">&copy; 2025 Ready Legal</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var el = entry.target;
+      var siblings = el.parentElement.querySelectorAll('.pricing-card, .flat-fee-card, .policy-card');
+      var index = Array.prototype.indexOf.call(siblings, el);
+      el.style.animationDelay = (index * 0.12) + 's';
+      el.classList.add('visible');
+      observer.unobserve(el);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.pricing-card, .flat-fee-card, .policy-card').forEach(function(el) {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
