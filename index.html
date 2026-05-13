@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing | Ready Legal</title>
 <meta name="description" content="Ready Legal offers transparent, straightforward legal fee structures for Florida construction law, business law, and litigation matters.">
-
-<link href="Pricing%20_%20Ready%20Legal_files/css2.css" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-
 :root {
   --navy: #0b2a4a;
   --navy-mid: #143a63;
@@ -22,10 +18,8 @@
   --text: #1a2332;
   --text-light: #5a6478;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Inter', sans-serif;
   background: var(--white);
@@ -33,7 +27,6 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-
 /* HEADER */
 header {
   background: var(--navy);
@@ -47,7 +40,6 @@ header {
   height: 68px;
   box-shadow: 0 2px 24px rgba(0,0,0,0.25);
 }
-
 .logo {
   color: white;
   text-decoration: none;
@@ -58,7 +50,6 @@ header {
   transition: color 0.3s;
 }
 .logo:hover { color: var(--orange); }
-
 nav { display: flex; gap: 28px; align-items: center; }
 nav a {
   color: rgba(255,255,255,0.8);
@@ -70,7 +61,6 @@ nav a {
 }
 nav a:hover { color: white; }
 nav a.active { color: white; }
-
 .nav-cta {
   background: var(--orange);
   color: white !important;
@@ -80,7 +70,74 @@ nav a.active { color: white; }
   transition: background 0.3s !important;
 }
 .nav-cta:hover { background: var(--orange-dark) !important; }
-
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  background: var(--navy-mid);
+  z-index: 99;
+  flex-direction: column;
+  padding: 8px 0 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-menu.open {
+  display: flex;
+  animation: menuSlideDown 0.22s ease forwards;
+}
+@keyframes menuSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.mobile-menu a {
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 15px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, background 0.2s;
+}
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu a:hover { color: white; background: rgba(255,255,255,0.05); }
+.mobile-menu .mobile-cta {
+  background: var(--orange);
+  color: white !important;
+  margin: 16px 24px 0;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700 !important;
+  padding: 14px 28px !important;
+  border-bottom: none !important;
+}
+.mobile-menu .mobile-cta:hover { background: var(--orange-dark) !important; }
 /* HERO */
 .hero {
   position: relative;
@@ -88,7 +145,6 @@ nav a.active { color: white; }
   background: var(--navy);
   overflow: hidden;
 }
-
 .hero-video {
   position: absolute;
   inset: 0;
@@ -97,20 +153,17 @@ nav a.active { color: white; }
   object-fit: cover;
   object-position: center;
 }
-
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(100deg, rgba(11,42,74,0.92) 45%, rgba(11,42,74,0.55) 100%);
 }
-
 .hero-inner {
   position: relative;
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .hero-eyebrow {
   font-size: 11px;
   font-weight: 600;
@@ -121,7 +174,6 @@ nav a.active { color: white; }
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.1s;
 }
-
 .hero h1 {
   font-weight: 700;
   font-size: clamp(36px, 5vw, 60px);
@@ -131,7 +183,6 @@ nav a.active { color: white; }
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.25s;
 }
-
 .hero-sub {
   font-size: 16px;
   color: rgba(255,255,255,0.6);
@@ -141,7 +192,6 @@ nav a.active { color: white; }
   opacity: 0;
   animation: fadeUp 0.7s ease forwards 0.4s;
 }
-
 /* TRUST BAR */
 .trust-bar {
   background: var(--off-white);
@@ -153,7 +203,6 @@ nav a.active { color: white; }
   gap: 40px;
   flex-wrap: wrap;
 }
-
 .trust-item {
   font-size: 12px;
   font-weight: 600;
@@ -165,14 +214,12 @@ nav a.active { color: white; }
   gap: 8px;
 }
 .trust-item span { color: var(--orange); font-size: 14px; }
-
 /* PRICING OVERVIEW */
 .pricing-section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 48px;
 }
-
 .section-label {
   font-size: 11px;
   font-weight: 600;
@@ -181,7 +228,6 @@ nav a.active { color: white; }
   color: var(--orange);
   margin-bottom: 14px;
 }
-
 .section-title {
   font-weight: 700;
   font-size: clamp(24px, 3vw, 38px);
@@ -189,7 +235,6 @@ nav a.active { color: white; }
   line-height: 1.15;
   margin-bottom: 16px;
 }
-
 .section-sub {
   font-size: 16px;
   color: var(--text-light);
@@ -198,7 +243,6 @@ nav a.active { color: white; }
   max-width: 640px;
   margin-bottom: 56px;
 }
-
 /* PRICING CARDS */
 .pricing-grid {
   display: grid;
@@ -206,7 +250,6 @@ nav a.active { color: white; }
   gap: 24px;
   margin-bottom: 64px;
 }
-
 .pricing-card {
   background: var(--off-white);
   border: 1px solid var(--gray);
@@ -217,24 +260,19 @@ nav a.active { color: white; }
   opacity: 0;
   transform: translateY(20px);
 }
-
 .pricing-card.visible {
   animation: fadeUp 0.6s ease forwards;
 }
-
 .pricing-card:hover {
   border-top-color: var(--orange);
   box-shadow: 0 8px 32px rgba(0,0,0,0.09);
   transform: translateY(-3px);
 }
-
 .card-header {
   background: var(--navy);
   padding: 28px 32px;
 }
-
 .card-header .card-icon { font-size: 28px; margin-bottom: 12px; }
-
 .card-header h3 {
   font-size: 16px;
   font-weight: 700;
@@ -243,19 +281,16 @@ nav a.active { color: white; }
   letter-spacing: 0.5px;
   margin-bottom: 4px;
 }
-
 .card-header p {
   font-size: 12px;
   color: rgba(255,255,255,0.5);
   font-weight: 300;
 }
-
 .card-rate {
   padding: 24px 32px;
   border-bottom: 1px solid var(--gray);
   background: white;
 }
-
 .rate-amount {
   font-size: 36px;
   font-weight: 700;
@@ -263,26 +298,21 @@ nav a.active { color: white; }
   line-height: 1;
   margin-bottom: 4px;
 }
-
 .rate-amount .rate-unit {
   font-size: 16px;
   font-weight: 400;
   color: var(--text-light);
 }
-
 .rate-note {
   font-size: 12px;
   color: var(--text-light);
   margin-top: 6px;
 }
-
 .card-body {
   padding: 24px 32px;
   background: white;
 }
-
 .card-body ul { list-style: none; }
-
 .card-body li {
   font-size: 13px;
   color: var(--text-light);
@@ -293,27 +323,22 @@ nav a.active { color: white; }
   line-height: 1.5;
   font-weight: 300;
 }
-
 .card-body li::before {
   content: '—';
   color: var(--orange);
   flex-shrink: 0;
   font-weight: 700;
 }
-
 .card-body li:last-child { border-bottom: none; }
-
 /* FLAT FEE CALLOUT */
 .flat-fee-section {
   background: var(--navy);
   padding: 80px 48px;
 }
-
 .flat-fee-inner {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .flat-fee-inner .section-label { color: var(--orange); }
 .flat-fee-inner .section-title { color: white; margin-bottom: 12px; }
 .flat-fee-intro {
@@ -324,13 +349,11 @@ nav a.active { color: white; }
   max-width: 620px;
   margin-bottom: 48px;
 }
-
 .flat-fee-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
 .flat-fee-card {
   background: var(--navy-mid);
   border: 1px solid rgba(255,255,255,0.08);
@@ -340,13 +363,10 @@ nav a.active { color: white; }
   opacity: 0;
   transform: translateY(20px);
 }
-
 .flat-fee-card.visible {
   animation: fadeUp 0.6s ease forwards;
 }
-
 .flat-fee-icon { font-size: 28px; margin-bottom: 16px; }
-
 .flat-fee-card h3 {
   font-size: 15px;
   font-weight: 700;
@@ -355,28 +375,24 @@ nav a.active { color: white; }
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
-
 .flat-fee-card p {
   font-size: 13px;
   color: rgba(255,255,255,0.6);
   line-height: 1.75;
   font-weight: 300;
 }
-
 /* POLICIES SECTION */
 .policies-section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 48px;
 }
-
 .policies-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   margin-top: 48px;
 }
-
 .policy-card {
   background: var(--off-white);
   border: 1px solid var(--gray);
@@ -386,13 +402,10 @@ nav a.active { color: white; }
   opacity: 0;
   transform: translateY(20px);
 }
-
 .policy-card.visible {
   animation: fadeUp 0.6s ease forwards;
 }
-
 .policy-icon { font-size: 24px; margin-bottom: 14px; }
-
 .policy-card h3 {
   font-size: 15px;
   font-weight: 700;
@@ -401,23 +414,19 @@ nav a.active { color: white; }
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
-
 .policy-card p {
   font-size: 14px;
   color: var(--text-light);
   line-height: 1.8;
   font-weight: 300;
 }
-
 .policy-card strong { color: var(--text); font-weight: 600; }
-
 /* CTA / CONTACT */
 .cta-section {
   background: var(--off-white);
   border-top: 1px solid var(--gray);
   padding: 80px 48px;
 }
-
 .cta-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -426,7 +435,6 @@ nav a.active { color: white; }
   gap: 80px;
   align-items: start;
 }
-
 .cta-left p {
   font-size: 16px;
   color: var(--text-light);
@@ -434,7 +442,6 @@ nav a.active { color: white; }
   font-weight: 300;
   margin-bottom: 28px;
 }
-
 .cta-phone {
   font-weight: 700;
   font-size: 34px;
@@ -446,7 +453,6 @@ nav a.active { color: white; }
 }
 .cta-phone:hover { color: var(--orange); }
 .cta-hours { font-size: 13px; color: var(--text-light); font-weight: 500; }
-
 .form-box {
   background: white;
   border: 1px solid var(--gray);
@@ -455,14 +461,12 @@ nav a.active { color: white; }
   border-radius: 3px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
-
 .form-box h3 {
   font-weight: 700;
   font-size: 20px;
   color: var(--navy);
   margin-bottom: 24px;
 }
-
 form label {
   display: block;
   font-size: 12px;
@@ -472,7 +476,6 @@ form label {
   color: var(--navy);
   margin-bottom: 6px;
 }
-
 form input,
 form select,
 form textarea {
@@ -488,7 +491,6 @@ form textarea {
   transition: border-color 0.2s, background 0.2s;
   box-sizing: border-box;
 }
-
 form input:focus,
 form select:focus,
 form textarea:focus {
@@ -496,9 +498,7 @@ form textarea:focus {
   border-color: var(--orange);
   background: white;
 }
-
 form textarea { resize: vertical; }
-
 form button {
   background: var(--orange);
   color: white;
@@ -514,11 +514,9 @@ form button {
   transition: background 0.3s;
 }
 form button:hover { background: var(--orange-dark); }
-
 /* FOOTER */
 footer { background: #07192c; padding: 56px 48px 28px; }
 .footer-inner { max-width: 1200px; margin: 0 auto; }
-
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -527,10 +525,8 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   border-bottom: 1px solid rgba(255,255,255,0.07);
   margin-bottom: 28px;
 }
-
 .footer-brand .logo { display: block; margin-bottom: 14px; }
 .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
-
 .footer-col h4 {
   font-size: 11px;
   font-weight: 700;
@@ -539,29 +535,25 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   color: rgba(255,255,255,0.5);
   margin-bottom: 18px;
 }
-
 .footer-col ul { list-style: none; }
 .footer-col li { margin-bottom: 9px; }
 .footer-col a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
 .footer-col a:hover { color: var(--orange); }
-
 .footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
 .footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
 .footer-contact a:hover { color: var(--orange); }
-
 .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
 .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
-
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 /* RESPONSIVE */
 @media (max-width: 960px) {
   nav { display: none; }
+  .hamburger { display: flex; }
   header { padding: 0 24px; }
   .hero { padding: 60px 24px; }
   .trust-bar { padding: 14px 24px; gap: 20px; }
@@ -575,7 +567,6 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   footer { padding: 48px 24px 24px; }
 }
-
 </style>
 </head>
 <body>
@@ -591,7 +582,22 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <a href="https://resources.readylegal.net/">Resources</a>
     <a href="#contact" class="nav-cta">Get Help</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="https://counsel.readylegal.net/">Counsel</a>
+  <a href="https://practices.readylegal.net/">Practice Areas</a>
+  <a href="#" style="color:white;">Pricing</a>
+  <a href="https://about.readylegal.net/">About</a>
+  <a href="https://resources.readylegal.net/">Resources</a>
+  <a href="#contact" class="mobile-cta">Get Help</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -853,6 +859,28 @@ limited to matters involving the State of Florida.</p>
 </footer>
 
 <script>
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var isOpen = false;
+
+hamburger.addEventListener('click', function() {
+  isOpen = !isOpen;
+  hamburger.classList.toggle('open', isOpen);
+  mobileMenu.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    isOpen = false;
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  });
+});
+
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
@@ -870,7 +898,5 @@ document.querySelectorAll('.pricing-card, .flat-fee-card, .policy-card').forEach
   observer.observe(el);
 });
 </script>
-
-
 
 </body></html>
