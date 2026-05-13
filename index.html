@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing | Ready Legal</title>
 <meta name="description" content="Ready Legal offers transparent, straightforward legal fee structures for Florida construction law, business law, and litigation matters.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="Pricing%20_%20Ready%20Legal_files/css2.css" rel="stylesheet">
 
 <style>
 
@@ -89,14 +89,19 @@ nav a.active { color: white; }
   overflow: hidden;
 }
 
-.hero-bg {
+.hero-video {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%),
-    url("https://readylegal.net/wp-content/uploads/2025/05/mick-haupt-tyn3-cljx-a-unsplash.jpg");
-  background-size: cover;
-  background-position: center right;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(11,42,74,0.92) 45%, rgba(11,42,74,0.55) 100%);
 }
 
 .hero-inner {
@@ -577,24 +582,27 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 <!-- HEADER -->
 <header>
-  <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+  <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
   <nav>
-    <a href="https://counsel.readylegal.net">Counsel</a>
-    <a href="https://practices.readylegal.net">Practice Areas</a>
+    <a href="https://counsel.readylegal.net/">Counsel</a>
+    <a href="https://practices.readylegal.net/">Practice Areas</a>
     <a href="#" style="color:white;">Pricing</a>
-    <a href="https://about.readylegal.net">About</a>
-    <a href="https://resources.readylegal.net">Resources</a>
+    <a href="https://about.readylegal.net/">About</a>
+    <a href="https://resources.readylegal.net/">Resources</a>
     <a href="#contact" class="nav-cta">Get Help</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://videos.files.wordpress.com/9P2r5vzS/8482309-hd_1280_720_25fps-1.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <p class="hero-eyebrow">Ready Legal &mdash; Orlando, Florida</p>
+    <p class="hero-eyebrow">Ready Legal — Orlando, Florida</p>
     <h1>Pricing</h1>
-    <p class="hero-sub">Transparent and straightforward legal fees. No surprises &mdash; just clear pricing tailored to your matter.</p>
+    <p class="hero-sub">Transparent and straightforward legal fees. No surprises — just clear pricing tailored to your matter.</p>
   </div>
 </section>
 
@@ -610,11 +618,14 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 <section class="pricing-section">
   <p class="section-label">Fee Structure</p>
   <h2 class="section-title">How We Bill</h2>
-  <p class="section-sub">Ready Legal believes in transparency and clarity when it comes to legal fees. Most services are billed hourly, with flat-fee options available for select matters agreed upon in advance.</p>
+  <p class="section-sub">Ready Legal believes in transparency and
+clarity when it comes to legal fees. Most services are billed hourly,
+with flat-fee options available for select matters agreed upon in
+advance.</p>
 
   <div class="pricing-grid">
 
-    <div class="pricing-card">
+    <div class="pricing-card visible" style="animation-delay: 0s;">
       <div class="card-header">
         <div class="card-icon">⚖️</div>
         <h3>Attorney Legal Services</h3>
@@ -635,7 +646,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
       </div>
     </div>
 
-    <div class="pricing-card">
+    <div class="pricing-card visible" style="animation-delay: 0.12s;">
       <div class="card-header">
         <div class="card-icon">📋</div>
         <h3>Administrative Services</h3>
@@ -656,7 +667,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
       </div>
     </div>
 
-    <div class="pricing-card">
+    <div class="pricing-card visible" style="animation-delay: 0.24s;">
       <div class="card-header">
         <div class="card-icon">💲</div>
         <h3>Flat Fee Services</h3>
@@ -684,7 +695,10 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <div class="flat-fee-inner">
     <p class="section-label">Flat Fee Services</p>
     <h2 class="section-title">Predictable Pricing for Common Matters</h2>
-    <p class="flat-fee-intro">For certain projects, Ready Legal offers legal services on a flat-fee basis if agreed upon in advance. These services are priced transparently so you know the cost before work begins.</p>
+    <p class="flat-fee-intro">For certain projects, Ready Legal offers
+legal services on a flat-fee basis if agreed upon in advance. These
+services are priced transparently so you know the cost before work
+begins.</p>
     <div class="flat-fee-grid">
       <div class="flat-fee-card">
         <div class="flat-fee-icon">🏠</div>
@@ -700,7 +714,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
         <div class="flat-fee-icon">🔨</div>
         <h3>Construction Lien Preparation</h3>
         <p>Florida construction liens prepared by a licensed attorney for a flat fee. Lien must be recorded and served by the client.</p>
-        <a href="https://lien.readylegal.net" style="display:inline-block; margin-top:20px; background:var(--orange); color:white; padding:10px 20px; border-radius:3px; font-size:13px; font-weight:700; text-decoration:none; letter-spacing:0.3px; transition:background 0.3s;" onmouseover="this.style.background='#e67a1f'" onmouseout="this.style.background='#ff8c2a'">Start My Lien &rarr;</a>
+        <a href="https://lien.readylegal.net/" style="display:inline-block; margin-top:20px; background:var(--orange); color:white; padding:10px 20px; border-radius:3px; font-size:13px; font-weight:700; text-decoration:none; letter-spacing:0.3px; transition:background 0.3s;" onmouseover="this.style.background='#e67a1f'" onmouseout="this.style.background='#ff8c2a'">Start My Lien →</a>
       </div>
     </div>
   </div>
@@ -715,25 +729,38 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <div class="policy-card">
       <div class="policy-icon">💳</div>
       <h3>Payment in Advance</h3>
-      <p>Ready Legal collects fees in advance to ensure seamless legal service. For hourly work, we require an <strong>advance fee deposit</strong> (often incorrectly referred to as a "retainer"). The amount typically correlates with the scope of the project or, for longer matters such as litigation, an estimate covering an interim billing period. For flat-fee services, the full fee must be paid before work begins.</p>
+      <p>Ready Legal collects fees in advance to ensure seamless legal service. For hourly work, we require an <strong>advance fee deposit</strong>
+ (often incorrectly referred to as a "retainer"). The amount typically
+correlates with the scope of the project or, for longer matters such as
+litigation, an estimate covering an interim billing period. For flat-fee
+ services, the full fee must be paid before work begins.</p>
     </div>
 
     <div class="policy-card">
       <div class="policy-icon">🚫</div>
       <h3>No Contingency Fees</h3>
-      <p>Ready Legal does <strong>not</strong> operate on a contingency fee model. All legal services are billed according to the hourly rates or agreed-upon flat fees described above. If you need a personal injury attorney who operates on contingency, we would be happy to offer a referral.</p>
+      <p>Ready Legal does <strong>not</strong> operate on a contingency
+fee model. All legal services are billed according to the hourly rates
+or agreed-upon flat fees described above. If you need a personal injury
+attorney who operates on contingency, we would be happy to offer a
+referral.</p>
     </div>
 
     <div class="policy-card">
       <div class="policy-icon">🤝</div>
       <h3>Engagement Agreement Required</h3>
-      <p>No legal services are performed until a written engagement agreement has been signed by both parties. Submitting a form or contacting the firm does not create an attorney-client relationship or obligate the firm to perform any services.</p>
+      <p>No legal services are performed until a written engagement
+agreement has been signed by both parties. Submitting a form or
+contacting the firm does not create an attorney-client relationship or
+obligate the firm to perform any services.</p>
     </div>
 
     <div class="policy-card">
       <div class="policy-icon">💬</div>
       <h3>Questions About Fees?</h3>
-      <p>If you have any questions about our pricing or would like an estimate for your specific matter, contact Ready Legal. We are happy to discuss your case and provide <strong>clarity on potential costs</strong> before you commit to anything.</p>
+      <p>If you have any questions about our pricing or would like an
+estimate for your specific matter, contact Ready Legal. We are happy to
+discuss your case and provide <strong>clarity on potential costs</strong> before you commit to anything.</p>
     </div>
 
   </div>
@@ -745,9 +772,11 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <div class="cta-left">
       <p class="section-label">Get Help</p>
       <h2 class="section-title">Ready to speak with an attorney?</h2>
-      <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone to discuss your matter and get a fee estimate.</p>
+      <p>Complete the form and our team will follow up promptly. You can
+ also reach us directly by phone to discuss your matter and get a fee
+estimate.</p>
       <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
-      <p class="cta-hours">Monday &ndash; Friday &nbsp;|&nbsp; 9:00 AM &ndash; 5:00 PM</p>
+      <p class="cta-hours">Monday – Friday &nbsp;|&nbsp; 9:00 AM – 5:00 PM</p>
     </div>
     <div class="form-box">
       <h3>Request a Consultation</h3>
@@ -755,18 +784,18 @@ footer { background: #07192c; padding: 56px 48px 28px; }
         <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
 
         <label>Name</label>
-        <input type="text" name="name" placeholder="Jane Smith" required>
+        <input type="text" name="name" placeholder="Jane Smith" required="">
 
         <label>Email</label>
-        <input type="email" name="email" placeholder="jane@example.com" required>
+        <input type="email" name="email" placeholder="jane@example.com" required="">
 
         <label>Phone</label>
         <input type="tel" name="phone" placeholder="(407) 555-0000">
 
         <label>Briefly Describe Your Legal Matter</label>
-        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
 
-        <button type="submit">Get Help &rarr;</button>
+        <button type="submit">Get Help →</button>
       </form>
     </div>
   </div>
@@ -777,19 +806,21 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
-        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for
+Orlando's small business community. Construction law, business law, and
+litigation throughout Florida.</p>
         <br>
         <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="https://counsel.readylegal.net">Counsel</a></li>
-          <li><a href="https://practices.readylegal.net">Practice Areas</a></li>
+          <li><a href="https://counsel.readylegal.net/">Counsel</a></li>
+          <li><a href="https://practices.readylegal.net/">Practice Areas</a></li>
           <li><a href="#">Pricing</a></li>
-          <li><a href="https://about.readylegal.net">About</a></li>
-          <li><a href="https://resources.readylegal.net">Resources</a></li>
+          <li><a href="https://about.readylegal.net/">About</a></li>
+          <li><a href="https://resources.readylegal.net/">Resources</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -799,19 +830,24 @@ footer { background: #07192c; padding: 56px 48px 28px; }
           924 N. Magnolia Avenue<br>
           Suite 202, #1178<br>
           Orlando, FL 32803<br>
-          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox &mdash; mailing only</span>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox — mailing only</span>
           <br><br>
           <a href="tel:4072582002">(407) 258-2002</a><br>
           <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
-          <a href="https://home.readylegal.net">www.readylegal.net</a>
+          <a href="https://home.readylegal.net/">www.readylegal.net</a>
           <br><br>
-          Veteran Owned &#127482;&#127480;
+          Veteran Owned 🇺🇸
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-disclaimer">The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.</p>
-      <p class="footer-copy">&copy; 2025 Ready Legal</p>
+      <p class="footer-disclaimer">The information on this page is for
+general informational purposes only and does not constitute legal
+advice. Nothing here should be interpreted as an offer to provide legal
+services. No attorney-client relationship is formed until a written
+engagement agreement has been executed by both parties. Services are
+limited to matters involving the State of Florida.</p>
+      <p class="footer-copy">© 2025 Ready Legal</p>
     </div>
   </div>
 </footer>
@@ -835,5 +871,6 @@ document.querySelectorAll('.pricing-card, .flat-fee-card, .policy-card').forEach
 });
 </script>
 
-</body>
-</html>
+
+
+</body></html>
