@@ -79,13 +79,10 @@ nav a.active { color: white; }
   border-top: 3px solid var(--navy);
   border-radius: 2px;
   overflow: hidden;
-  transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  opacity: 0;
-  transform: translateY(20px);
+  transition: border-top-color 0.3s, box-shadow 0.3s, transform 0.2s;
   display: flex;
   flex-direction: column;
 }
-.pricing-card.visible { animation: fadeUp 0.6s ease forwards; }
 .pricing-card:hover { border-top-color: var(--orange); box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-3px); }
 
 .card-header { background: var(--navy); padding: 28px 32px; }
@@ -111,8 +108,7 @@ nav a.active { color: white; }
 .flat-fee-inner .section-title { color: white; margin-bottom: 12px; }
 .flat-fee-intro { font-size: 16px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.85; max-width: 620px; margin-bottom: 48px; }
 .flat-fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.flat-fee-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid var(--orange); padding: 32px 28px; border-radius: 2px; opacity: 0; transform: translateY(20px); }
-.flat-fee-card.visible { animation: fadeUp 0.6s ease forwards; }
+.flat-fee-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid var(--orange); padding: 32px 28px; border-radius: 2px; }
 .flat-fee-icon { font-size: 28px; margin-bottom: 16px; }
 .flat-fee-card h3 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.3px; }
 .flat-fee-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; }
@@ -120,8 +116,7 @@ nav a.active { color: white; }
 /* POLICIES SECTION */
 .policies-section { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
 .policies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
-.policy-card { background: var(--off-white); border: 1px solid var(--gray); border-left: 3px solid var(--orange); padding: 32px 28px; border-radius: 2px; opacity: 0; transform: translateY(20px); }
-.policy-card.visible { animation: fadeUp 0.6s ease forwards; }
+.policy-card { background: var(--off-white); border: 1px solid var(--gray); border-left: 3px solid var(--orange); padding: 32px 28px; border-radius: 2px; }
 .policy-icon { font-size: 24px; margin-bottom: 14px; }
 .policy-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.3px; }
 .policy-card p { font-size: 14px; color: var(--text-light); line-height: 1.8; font-weight: 300; }
@@ -241,7 +236,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <p class="section-sub">Ready Legal believes in transparency and clarity when it comes to legal fees. Most services are billed hourly, with flat-fee options available for select matters agreed upon in advance.</p>
   <div class="pricing-grid">
 
-    <div class="pricing-card visible" style="animation-delay: 0s;">
+    <div class="pricing-card">
       <div class="card-header">
         <div class="card-icon">⚖️</div>
         <h3>Attorney Legal Services</h3>
@@ -262,7 +257,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
       </div>
     </div>
 
-    <div class="pricing-card visible" style="animation-delay: 0.12s;">
+    <div class="pricing-card">
       <div class="card-header">
         <div class="card-icon">📋</div>
         <h3>Administrative Services</h3>
@@ -283,7 +278,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
       </div>
     </div>
 
-    <div class="pricing-card visible" style="animation-delay: 0.24s;">
+    <div class="pricing-card">
       <div class="card-header">
         <div class="card-icon">💲</div>
         <h3>Flat Fee Services</h3>
@@ -456,22 +451,67 @@ mobileMenu.querySelectorAll('a').forEach(function(link) {
   });
 });
 
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      var el = entry.target;
-      var siblings = el.parentElement.querySelectorAll('.pricing-card, .flat-fee-card, .policy-card');
-      var index = Array.prototype.indexOf.call(siblings, el);
-      el.style.animationDelay = (index * 0.12) + 's';
-      el.classList.add('visible');
-      observer.unobserve(el);
-    }
+/* PROXIMITY EFFECT */
+(function () {
+  var CFG = {
+    range: 180,
+    maxScale: 1.07,
+    maxBright: 1.14,
+    maxLift: 4,
+    easingPower: 2,
+    transIn: 'transform 0.07s ease-out, filter 0.07s ease-out',
+    transOut: 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.45s ease',
+  };
+  var CONTAINERS = [
+    { wrap: 'header', items: '.nav-cta' },
+    { wrap: '.hero-inner', items: '.hero-eyebrow' },
+    { wrap: '.pricing-grid', items: '.pricing-card' },
+    { wrap: '.flat-fee-grid', items: '.flat-fee-card' },
+    { wrap: '.policies-grid', items: '.policy-card' },
+  ];
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+  var targets = [];
+  CONTAINERS.forEach(function (def) {
+    var root = def.wrap ? document.querySelector(def.wrap) : document;
+    if (def.wrap && !root) return;
+    root.querySelectorAll(def.items).forEach(function (el) {
+      el.style.willChange = 'transform, filter';
+      el.style.transition = CFG.transOut;
+      targets.push(el);
+    });
   });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.pricing-card, .flat-fee-card, .policy-card').forEach(function(el) {
-  observer.observe(el);
-});
+  if (!targets.length) return;
+  function distToRect(x, y, r) {
+    var dx = Math.max(r.left - x, 0, x - r.right);
+    var dy = Math.max(r.top - y, 0, y - r.bottom);
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+  function ease(t) { return Math.pow(t, CFG.easingPower); }
+  var mx = -9999, my = -9999, rafPending = false;
+  function update() {
+    rafPending = false;
+    targets.forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      var dist = distToRect(mx, my, rect);
+      if (dist >= CFG.range) {
+        el.style.transition = CFG.transOut;
+        el.style.transform = 'scale(1) translateY(0px)';
+        el.style.filter = 'brightness(1)';
+        return;
+      }
+      var proximity = ease(1 - dist / CFG.range);
+      var scale = 1 + (CFG.maxScale - 1) * proximity;
+      var bright = 1 + (CFG.maxBright - 1) * proximity;
+      var lift = CFG.maxLift * proximity;
+      el.style.transition = CFG.transIn;
+      el.style.transform = 'scale(' + scale.toFixed(4) + ') translateY(' + (-lift).toFixed(2) + 'px)';
+      el.style.filter = 'brightness(' + bright.toFixed(4) + ')';
+    });
+  }
+  function scheduleUpdate() { if (!rafPending) { rafPending = true; requestAnimationFrame(update); } }
+  document.addEventListener('pointermove', function (e) { mx = e.clientX; my = e.clientY; scheduleUpdate(); });
+  document.addEventListener('pointerleave', function () { mx = -9999; my = -9999; scheduleUpdate(); });
+}());
 </script>
 
 </body></html>
